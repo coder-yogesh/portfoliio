@@ -4,12 +4,12 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - MyResume Bootstrap Template</title>
+  <title>Yogesh.S - Portfolio</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/favicon-dark.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Fonts -->
@@ -67,9 +67,13 @@
         <div class="row justify-content-center">
           <div class="col-lg-9">
             <h2>Sakalabhaktula Yogeswara rao</h2>
-            <p>I'm <span class="typed" data-typed-items="Frontend Developer, JavaScript Developer, React Developer, Angular Developer, Vue.js Enthusiast, UI/UX Designer, HTML/CSS Expert, Responsive Web Designer, Performance Optimizer, Web Animations Creator">
-              Frontend Developer
-            </span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+            <p>I'm 
+              <span class="typed" 
+                    data-typed-items="Angular Developer, Node.js Developer, JavaScript Developer, REST API Integrator, MongoDB Expert, Responsive Web Designer, UI/UX Enthusiast, Web App Optimizer, Frontend Specialist">
+                MERN Stack Developer
+              </span>
+              <span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span>
+            </p>
             <div class="social-links">
               <a href="https://github.com/coder-yogesh" target="_blank"><i class="bi bi-github"></i></a>
               <a href="https://www.linkedin.com/in/yogesh-s-1a6b65229/" target="_blank"><i class="bi bi-linkedin"></i></a>
@@ -695,43 +699,38 @@
           </div>
 
           <div class="col-lg-8">
-          <form action="https://formsubmit.co/yogisakalabhaktula@gmail.com" method="POST" class="php-email-form" data-aos="fade-up" data-aos-delay="200" enctype="multipart/form-data" target="_blank">
-            
-            <!-- OPTIONAL: disable captcha -->
-            <input type="hidden" name="_captcha" value="false">
+            <form id="gmailForm" class="php-email-form" onsubmit="sendToGmail(event)">
+              <div class="row gy-4">
 
-            <div class="row gy-4">
-              <!-- Name -->
-              <div class="col-md-6">
-                <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                <!-- Name -->
+                <div class="col-md-6">
+                  <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+                </div>
+
+                <!-- Email -->
+                <div class="col-md-6">
+                  <input type="email" id="email" class="form-control" placeholder="Your Email" required>
+                </div>
+
+                <!-- Subject -->
+                <div class="col-md-12">
+                  <input type="text" id="subject" class="form-control" placeholder="Subject" required>
+                </div>
+
+                <!-- Message -->
+                <div class="col-md-12">
+                  <textarea id="message" rows="6" class="form-control" placeholder="Message" required></textarea>
+                </div>
+
+                <!-- Submit -->
+                <div class="col-md-12 text-center">
+                  <button type="submit">Open Gmail</button>
+                </div>
+
               </div>
+            </form>
+          </div>
 
-              <!-- Email -->
-              <div class="col-md-6">
-                <input type="email" name="email" class="form-control" placeholder="Your Email" required>
-              </div>
-
-              <!-- Subject -->
-              <div class="col-md-12">
-                <input type="text" name="subject" class="form-control" placeholder="Subject" required>
-              </div>
-
-              <!-- Message -->
-              <div class="col-md-12">
-                <textarea name="message" rows="6" class="form-control" placeholder="Message" required></textarea>
-              </div>
-
-              <!-- Submit -->
-              <div class="col-md-12 text-center">
-                <div class="loading">Loading</div>
-                <div class="error-message text-danger" style="display:none;"></div>
-                <div class="sent-message text-success" style="display:none;">Your message has been sent. Thank you!</div>
-
-                <button type="submit">Send Message</button>
-              </div>
-            </div>
-          </form>
-        </div>
 
           <!-- End Contact Form -->
 
@@ -787,6 +786,21 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script>
+    function sendToGmail(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const subject = encodeURIComponent(document.getElementById("subject").value);
+      const message = encodeURIComponent(document.getElementById("message").value);
+
+      const gmailComposeURL = `https://mail.google.com/mail/?view=cm&fs=1&to=yogisakalabhaktula@gmail.com&su=${subject}&body=Hi, my name is ${name} (${email})%0D%0A%0D%0A${message}`;
+
+      window.open(gmailComposeURL, "_blank");
+    }
+  </script>
+
 
 </body>
 
