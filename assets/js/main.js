@@ -121,6 +121,7 @@
       handler: function(direction) {
         let progress = item.querySelectorAll('.progress .progress-bar');
         progress.forEach(el => {
+          el.style.transition = 'none';
           el.style.width = el.getAttribute('aria-valuenow') + '%';
         });
       }
